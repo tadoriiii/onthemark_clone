@@ -1,11 +1,12 @@
 import React from "react";
 
-import { Banner } from "components";
+import { Banner, Header } from "components";
 
 export const Landing = () => {
   return (
     <>
       <Banner />
+      <Header />
     </>
   );
 };
