@@ -62,7 +62,17 @@ export const Header = () => {
           <div class="first-item">서비스 소개</div>
           <div class="second-item">상표검토신청</div>
           <div class="third-item">상표출원신청</div>
-          <div class="fourth-item"></div>
+          <div class="fourth-item">
+            <input class="input" placeholder="상표등록 총 예상비용은?" />
+            <button class="button">
+              <div class="text">견적조회</div>
+              <img
+                class="search-img"
+                src="img/header/actions-search.svg"
+                alt="search-img"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
