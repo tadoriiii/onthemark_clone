@@ -3,9 +3,13 @@ import React from "react";
 import "./NextArrow.scss";
 
 export const NextArrow = (props) => {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
+  // const newStyle = {
+  //   ...style,
+  //   "@media(max-width:1024px)": { display: "none" },
+  // };
   return (
-    <div className={className} style={{ ...style }} onClick={onClick}>
+    <div className={className} onClick={onClick}>
       <div class="circle">
         <img
           class="right-arrow"

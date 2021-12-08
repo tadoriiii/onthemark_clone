@@ -28,22 +28,44 @@ export const Banner = () => {
             <div class="text-main">상표 검토하고 인증마크 받자!</div>
             <div class="text-sub">인증마크 보유 상표 출원시 할인가 혜택!</div>
           </div>
+          {/* <div>
+            {isTablet && (
+              <img
+                class="img-banner"
+                src="/img/mobile/banner/img-top-event-banner-m.png"
+                alt="banner"
+              />
+            )}
+            {isDesktop && (
+              <img
+                class="img-banner"
+                src="/img/banner/bannerImg/img-top-event-banner-pc.png"
+                alt="banner"
+              />
+            )}
+          </div>
           <img
             class="img-banner"
             src="/img/banner/bannerImg/img-top-event-banner-pc.png"
             alt="banner"
-          />
+          /> */}
+          <div class="img-banner-outside">
+            <div class="img-banner" />
+          </div>
         </div>
         <div class="carousel" aria-hidden="false">
           <div class="text">
             <div class="text-main">리뷰 남기면 출원 할인 코드가 쓱~</div>
             <div class="text-sub">출원 신청 시 사용 가능한 10% 할인 혜택!</div>
           </div>
-          <img
+          <div class="img-banner-outside">
+            <div class="img-banner-second" />
+          </div>
+          {/* <img
             class="img-banner"
             src="/img/banner/bannerImg/img-top-event-banner-pc-2.png"
             alt="banner"
-          />
+          /> */}
         </div>
       </Slider>
       <div class="close">
