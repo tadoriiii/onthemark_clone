@@ -7,24 +7,54 @@ import "./Landing.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const NextArrow = () => {
-  return <>next Arrow</>;
+const NextArrow = (props) => {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <div class="circle">
+        <img
+          class="right-arrow"
+          src="/img/wrapper/second/actions-back.svg"
+          alt="actions-back"
+        />
+      </div>
+    </div>
+  );
 };
-const PrevArrow = () => {
-  return <>Prev Arrow</>;
+const PrevArrow = (props) => {
+  const { className, onClick } = props;
+  return (
+    <div className={className} onClick={onClick}>
+      <div class="circle">
+        <img
+          class="right-arrow"
+          src="/img/wrapper/second/actions-back.png"
+          alt="actions-back"
+        />
+      </div>
+    </div>
+  );
 };
 
 const settings = {
+  className: "center",
   dots: false,
   infinite: true,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 1,
   arrows: true,
-  // centerMode: true,
-  // centerPadding: "0px",
+  centerMode: true,
+  centerPadding: "0px",
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
+
+  responsive: [
+    {
+      breakpoint: "1100px",
+      settings: { slidesToShow: 1, arrows: false },
+    },
+  ],
 };
 
 const secondSettings = {
@@ -148,7 +178,7 @@ export const Landing = () => {
           </div>
           <div class="bottom-item">
             <Slider {...settings}>
-              <div class="bottom-item-first" aria-hidden="false">
+              <div class="bottom-item-first">
                 <div class="bottom-item-first-img">
                   <div class="bottom-item-first-img-top">
                     <div class="text">다른 출원업체가 걸어둔 </div>
@@ -177,7 +207,7 @@ export const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div class="bottom-item-second" aria-hidden="true">
+              <div class="bottom-item-second">
                 <div class="bottom-item-second-img">
                   <div class="bottom-item-second-img-top">
                     <div class="text">합리적인 비용으로</div>
@@ -208,7 +238,100 @@ export const Landing = () => {
                   </div>
                 </div>
               </div>
-              <div class="bottom-item-third" aria-hidden="true">
+              <div class="bottom-item-third">
+                <div class="bottom-item-third-img">
+                  <div class="bottom-item-third-img-top">
+                    <div class="text">
+                      상표 등록시 생기는 문제 가능성을 없애고
+                    </div>
+                    <div class="text">
+                      안전한 출원을 보장받고 싶지 않으신가요?
+                    </div>
+                  </div>
+                  <div class="bottom-item-third-bottom">
+                    <div class="text-wrapper">
+                      <div class="text">온더마크 인증마크의 혜택</div>
+                      <div class="text">자세히 알아보기</div>
+                    </div>
+                    <img
+                      class="bottom-item-third-bottom-img"
+                      src="/img/wrapper/second/img-go.png"
+                      alt="img-go"
+                    />
+                  </div>
+                </div>
+                <div class="bottom-item-third-text">
+                  <div class="text-title">온더마크는</div>
+                  <div class="text-main">
+                    변리사 모두가 등록가능성이 매우 높다고 판단한 상표에
+                    "온더마크 인증" 마크를 부여하여, 상표출원시 최저가인 단일가
+                    적용 및 미등록시 전액 환불처리하는 상표등록 보장제도를
+                    채택하고 있습니다.
+                  </div>
+                </div>
+              </div>
+
+              <div class="bottom-item-first">
+                <div class="bottom-item-first-img">
+                  <div class="bottom-item-first-img-top">
+                    <div class="text">다른 출원업체가 걸어둔 </div>
+                    <div class="text">고객 유인책 문구에 속으셨나요?</div>
+                  </div>
+                  <div class="bottom-item-first-bottom">
+                    <div class="text-wrapper">
+                      <div class="text">
+                        온라인 저가형의 상표출원서비스의 실체
+                      </div>
+                      <div class="text">자세히 알아보기</div>
+                    </div>
+                    <img
+                      class="bottom-item-first-bottom-img"
+                      src="/img/wrapper/second/img-go.png"
+                      alt="img-go"
+                    />
+                  </div>
+                </div>
+                <div class="bottom-item-first-text">
+                  <div class="text-title">온더마크는</div>
+                  <div class="text-main">
+                    동일 상표만 검색하는 식의 무책임한 단일의 저가형
+                    출원서비스를 제공하지 않으며 해당 서비스의 고객 피해사례를
+                    해결하고자 기획되었습니다.
+                  </div>
+                </div>
+              </div>
+              <div class="bottom-item-second">
+                <div class="bottom-item-second-img">
+                  <div class="bottom-item-second-img-top">
+                    <div class="text">합리적인 비용으로</div>
+                    <div class="text">
+                      전문가들의 피드백을 듣고 싶지 않으신가요?
+                    </div>
+                  </div>
+                  <div class="bottom-item-second-bottom">
+                    <div class="text-wrapper">
+                      <div class="text">
+                        다수의 변리사의 의견을 검토할 필요성
+                      </div>
+                      <div class="text">자세히 알아보기</div>
+                    </div>
+                    <img
+                      class="bottom-item-second-bottom-img"
+                      src="/img/wrapper/second/img-go.png"
+                      alt="img-go"
+                    />
+                  </div>
+                </div>
+                <div class="bottom-item-second-text">
+                  <div class="text-title">온더마크는</div>
+                  <div class="text-main">
+                    합리적인 비용으로 다수의 변리사가 직접 판단 하는 상표 검토
+                    서비스를 제공하여, 변리사 개개인의 주관적 판단을 객관화한
+                    집단지성의 검토의견을 제공하고 있습니다.
+                  </div>
+                </div>
+              </div>
+              <div class="bottom-item-third">
                 <div class="bottom-item-third-img">
                   <div class="bottom-item-third-img-top">
                     <div class="text">
@@ -854,265 +977,272 @@ export const Landing = () => {
               </Slider>
             </div>
           </div>
-
-          <div className="service">
-            <div className="serviceTextFirst">이용하기 편리한</div>
-            <div className="serviceTextSecond">합리적인 서비스 시스템</div>
-            <div className="serviceTextThird">
-              수익을 위해 아무 상표나 출원으로 내몰지 않습니다. 객관적인 검토
-              결과에 기초한 고객 결정을 최우선으로 생각합니다.
-            </div>
-            <div className="serviceWrapper">
-              <div className="step">
-                <img
-                  className="stepImage"
-                  src="/img/wrapper/service/icon-process-1.png"
-                  alt="process-1"
-                />
-                <div className="stepTitle">
-                  <div className="stepTitleText">1단계</div>
-                </div>
-                <div className="stepText">
-                  <div className="StepTextContent">상표검토</div>
-                  <div className="StepTextContent">신청</div>
-                </div>
+        </div>
+        <div className="service">
+          <div className="serviceTextFirst">이용하기 편리한</div>
+          <div className="serviceTextSecond">합리적인 서비스 시스템</div>
+          <div className="serviceTextThird">
+            수익을 위해 아무 상표나 출원으로 내몰지 않습니다. 객관적인 검토
+            결과에 기초한 고객 결정을 최우선으로 생각합니다.
+          </div>
+          <div className="serviceWrapper">
+            <div className="step">
+              <img
+                className="stepImage"
+                src="/img/wrapper/service/icon-process-1.png"
+                alt="process-1"
+              />
+              <div className="stepTitle">
+                <div className="stepTitleText">1단계</div>
               </div>
-
-              <div className="step">
-                <img
-                  className="stepImage"
-                  src="/img/wrapper/service/icon-process-2.png"
-                  alt="process-2"
-                />
-                <div className="stepTitle">
-                  <div className="stepTitleText">2단계</div>
-                </div>
-                <div className="stepText">
-                  <div className="StepTextContent">상표검토결과</div>
-                  <div className="StepTextContent">참고</div>
-                </div>
-              </div>
-
-              <div className="step">
-                <img
-                  className="stepImage"
-                  src="/img/wrapper/service/icon-process-4.png"
-                  alt="process-3"
-                />
-                <div className="stepTitle">
-                  <div className="stepTitleText">3단계</div>
-                </div>
-                <div className="stepText">
-                  <div className="StepTextContent">상표출원여부</div>
-                  <div className="StepTextContent">고객결정</div>
-                </div>
-              </div>
-              <div className="root">
-                <div className="rootBody" />
-                <div className="rootLeftCircle" />
-                <div className="rootRightCircle" />
-                <div className="rootRightBottomCircle" />
-              </div>
-              <div className="choice">
-                <div className="choiceItem">
-                  <img
-                    className="choiceImage"
-                    src="img/wrapper/service/icon-process-4-2.png"
-                    alt="process-4-2"
-                  />
-                  <div className="choiceText">
-                    <div className="choiceTextFirst">
-                      <div className="choiceTextFirstContent">고객선택 1</div>
-                    </div>
-                    <div className="choiceTextSecond">상표출원신청</div>
-                  </div>
-                </div>
-
-                <div className="choiceItem">
-                  <img
-                    className="choiceImage"
-                    src="img/wrapper/service/icon-process-4-1.png"
-                    alt="process-4-1"
-                  />
-                  <div className="choiceText">
-                    <div className="choiceTextFirst">
-                      <div className="choiceTextFirstContent">고객선택 2</div>
-                    </div>
-                    <div className="choiceTextSecond">셀프출원진행</div>
-                  </div>
-                </div>
+              <div className="stepText">
+                <div className="StepTextContent">상표검토</div>
+                <div className="StepTextContent">신청</div>
               </div>
             </div>
 
-            <div className="serviceWrapperMobile">
-              <div className="serviceMobileFirst">
-                <div className="firstItem">
-                  <img
-                    className="firstItemImage"
-                    src="/img/wrapper/service/mobile/icon-process-1.png"
-                    alt="process-1"
-                  />
-                  <div className="firstItemStep">
-                    <div className="firstItemStepText">1단계</div>
+            <div className="step">
+              <img
+                className="stepImage"
+                src="/img/wrapper/service/icon-process-2.png"
+                alt="process-2"
+              />
+              <div className="stepTitle">
+                <div className="stepTitleText">2단계</div>
+              </div>
+              <div className="stepText">
+                <div className="StepTextContent">상표검토결과</div>
+                <div className="StepTextContent">참고</div>
+              </div>
+            </div>
+
+            <div className="step">
+              <img
+                className="stepImage"
+                src="/img/wrapper/service/icon-process-4.png"
+                alt="process-3"
+              />
+              <div className="stepTitle">
+                <div className="stepTitleText">3단계</div>
+              </div>
+              <div className="stepText">
+                <div className="StepTextContent">상표출원여부</div>
+                <div className="StepTextContent">고객결정</div>
+              </div>
+            </div>
+            <div className="root">
+              <div className="rootBody" />
+              <div className="rootLeftCircle" />
+              <div className="rootRightCircle" />
+              <div className="rootRightBottomCircle" />
+            </div>
+            <div className="choice">
+              <div className="choiceItem">
+                <img
+                  className="choiceImage"
+                  src="img/wrapper/service/icon-process-4-2.png"
+                  alt="process-4-2"
+                />
+                <div className="choiceText">
+                  <div className="choiceTextFirst">
+                    <div className="choiceTextFirstContent">고객선택 1</div>
                   </div>
-                  <div className="firstItemText">
-                    <div>상표검토</div>
-                    <div>신청</div>
-                  </div>
-                </div>
-                <div className="firstItemLeft">
-                  <img
-                    className="firstItemImage"
-                    src="/img/wrapper/service/mobile/icon-process-2.png"
-                    alt="process-2"
-                  />
-                  <div className="firstItemStep">
-                    <div className="firstItemStepText">2단계</div>
-                  </div>
-                  <div className="firstItemText">
-                    <div>상표검토결과</div>
-                    <div>참고</div>
-                  </div>
+                  <div className="choiceTextSecond">상표출원신청</div>
                 </div>
               </div>
 
-              <div className="serviceMobileSecond">
+              <div className="choiceItem">
+                <img
+                  className="choiceImage"
+                  src="img/wrapper/service/icon-process-4-1.png"
+                  alt="process-4-1"
+                />
+                <div className="choiceText">
+                  <div className="choiceTextFirst">
+                    <div className="choiceTextFirstContent">고객선택 2</div>
+                  </div>
+                  <div className="choiceTextSecond">셀프출원진행</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="serviceWrapperMobile">
+            <div className="serviceMobileFirst">
+              <div className="firstItem">
                 <img
                   className="firstItemImage"
-                  src="/img/wrapper/service/mobile/icon-process-4.png"
-                  alt="process-4"
+                  src="/img/wrapper/service/mobile/icon-process-1.png"
+                  alt="process-1"
                 />
                 <div className="firstItemStep">
-                  <div className="firstItemStepText">3단계</div>
+                  <div className="firstItemStepText">1단계</div>
                 </div>
                 <div className="firstItemText">
                   <div>상표검토</div>
                   <div>신청</div>
                 </div>
               </div>
-              <div className="serviceMobileThird">
-                <div className="thirdTopLine" />
-                <div className="topCircle" />
-                <div className="leftCircle" />
-                <div className="rightCircle" />
-              </div>
-              <div className="serviceMobileFourth">
-                <div className="firstItem">
-                  <img
-                    className="firstItemImage"
-                    src="/img/wrapper/service/mobile/icon-process-4-2.png"
-                    alt="process-4-2"
-                  />
-                  <div className="firstItemStep">
-                    <div className="firstItemStepText">고객선택1</div>
-                  </div>
-                  <div className="firstItemText">
-                    <div>상표출원신청</div>
-                  </div>
-                </div>
-                <div className="firstItemLeft">
-                  <img
-                    className="firstItemImage"
-                    src="/img/wrapper/service/mobile/icon-process-4-1.png"
-                    alt="process-4-1"
-                  />
-                  <div className="firstItemStep">
-                    <div className="firstItemStepText">고객선택2</div>
-                  </div>
-                  <div className="firstItemText">
-                    <div>셀프출원진행</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="join">
-            <div className="joinFirst">이젠 온더마크로</div>
-            <div className="joinSecond">스마트하게 검토한 후 출원하세요</div>
-            <div className="joinThird">
-              상표 등록의 매몰비용이 최소화됩니다.
-            </div>
-            <div className="joinFourth">
-              <div className="joinFourthItem">
+              <div className="firstItemLeft">
                 <img
-                  className="joinFourthItemImage"
-                  src="/img/wrapper/signUp/icon-feedback.png"
-                  alt="icon-feedback"
+                  className="firstItemImage"
+                  src="/img/wrapper/service/mobile/icon-process-2.png"
+                  alt="process-2"
                 />
-                <div className="joinFourthItemTextTop"># 무자격?</div>
-                <div className="joinFourthItemTextBottom">
-                  전문자격 변리사들의 피드백!
+                <div className="firstItemStep">
+                  <div className="firstItemStepText">2단계</div>
                 </div>
-              </div>
-
-              <div className="joinFourthItem">
-                <img
-                  className="joinFourthItemImage"
-                  src="/img/wrapper/signUp/icon-credit-card.png"
-                  alt="icon-credit-card"
-                />
-                <div className="joinFourthItemTextTop"># 비싼가격?</div>
-                <div className="joinFourthItemTextBottom">
-                  출원까지 연결되는 합리적인 가격!
-                </div>
-              </div>
-
-              <div className="joinFourthItem">
-                <img
-                  className="joinFourthItemImage"
-                  src="/img/wrapper/signUp/icon-survey.png"
-                  alt="icon-survey"
-                />
-                <div className="joinFourthItemTextTop"># 어려운 신청?</div>
-                <div className="joinFourthItemTextBottom">
-                  5분 설문으로 빠른 검토 신청!
+                <div className="firstItemText">
+                  <div>상표검토결과</div>
+                  <div>참고</div>
                 </div>
               </div>
             </div>
-            <div className="joinFifthItem">
-              <div className="joinFifthItemText">상표 검토 신청하기</div>
-            </div>
-          </div>
 
-          <div className="register">
-            <div className="registerImg">
+            <div className="serviceMobileSecond">
               <img
-                src="/img/wrapper/register/img-expert.png"
-                alt="img-expert"
+                className="firstItemImage"
+                src="/img/wrapper/service/mobile/icon-process-4.png"
+                alt="process-4"
               />
+              <div className="firstItemStep">
+                <div className="firstItemStepText">3단계</div>
+              </div>
+              <div className="firstItemText">
+                <div>상표검토</div>
+                <div>신청</div>
+              </div>
             </div>
-            <div className="registerImgMobile">
-              <img
-                src="/img/wrapper/register/mobile/img-expert.png"
-                alt="img-expert"
-              />
+            <div className="serviceMobileThird">
+              <div className="thirdTopLine" />
+              <div className="topCircle" />
+              <div className="leftCircle" />
+              <div className="rightCircle" />
             </div>
-            <div className="registerFirst">
-              변리사 자격증을 소지하고 계신가요?
-            </div>
-            <div className="registerSecond">
-              온더마크의 변리사로 등록해보세요. 배정된 건에 대한 상표 검토를
-              수행하면 건별로 리워드를 제공합니다.
-            </div>
-            <div className="registerButton">
-              <div className="registerButtonText">전문가로 등록하기</div>
+            <div className="serviceMobileFourth">
+              <div className="firstItem">
+                <img
+                  className="firstItemImage"
+                  src="/img/wrapper/service/mobile/icon-process-4-2.png"
+                  alt="process-4-2"
+                />
+                <div className="firstItemStep">
+                  <div className="firstItemStepText">고객선택1</div>
+                </div>
+                <div className="firstItemText">
+                  <div>상표출원신청</div>
+                </div>
+              </div>
+              <div className="firstItemLeft">
+                <img
+                  className="firstItemImage"
+                  src="/img/wrapper/service/mobile/icon-process-4-1.png"
+                  alt="process-4-1"
+                />
+                <div className="firstItemStep">
+                  <div className="firstItemStepText">고객선택2</div>
+                </div>
+                <div className="firstItemText">
+                  <div>셀프출원진행</div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div className="email">
-            <div className="emailWrapper">
-              <div className="emailWrapperFirst">
-                <div className="emailWrapperFirstText">고객상담 Email</div>
-              </div>
-              <div className="emailWrapperSecond">help@onthemark.co.kr</div>
-              <div className="emailWrapperThird">
-                <div className="emailWrapperThirdTop">
-                  평일 10:00 - 18:00 [점심시간 12:00 - 13:00]
-                </div>
-                <div className="emailWrapperThirdBottom">휴일 및 주말 휴무</div>
+        <div className="join">
+          <div className="joinFirst">이젠 온더마크로</div>
+          <div className="joinSecond">스마트하게 검토한 후 출원하세요</div>
+          <div className="joinThird">상표 등록의 매몰비용이 최소화됩니다.</div>
+          <div className="joinFourth">
+            <div className="joinFourthItem">
+              <img
+                className="joinFourthItemImage"
+                src="/img/wrapper/signUp/icon-feedback.png"
+                alt="icon-feedback"
+              />
+              <div className="joinFourthItemTextTop"># 무자격?</div>
+              <div className="joinFourthItemTextBottom">
+                전문자격 변리사들의 피드백!
               </div>
             </div>
+
+            <div className="joinFourthItem">
+              <img
+                className="joinFourthItemImage"
+                src="/img/wrapper/signUp/icon-credit-card.png"
+                alt="icon-credit-card"
+              />
+              <div className="joinFourthItemTextTop"># 비싼가격?</div>
+              <div className="joinFourthItemTextBottom">
+                출원까지 연결되는 합리적인 가격!
+              </div>
+            </div>
+
+            <div className="joinFourthItem">
+              <img
+                className="joinFourthItemImage"
+                src="/img/wrapper/signUp/icon-survey.png"
+                alt="icon-survey"
+              />
+              <div className="joinFourthItemTextTop"># 어려운 신청?</div>
+              <div className="joinFourthItemTextBottom">
+                5분 설문으로 빠른 검토 신청!
+              </div>
+            </div>
+          </div>
+          <div className="joinFifthItem">
+            <div className="joinFifthItemText">상표 검토 신청하기</div>
+          </div>
+        </div>
+
+        <div className="register">
+          <div className="registerImg">
+            <img src="/img/wrapper/register/img-expert.png" alt="img-expert" />
+          </div>
+          <div className="registerImgMobile">
+            <img
+              src="/img/wrapper/register/mobile/img-expert.png"
+              alt="img-expert"
+            />
+          </div>
+          <div className="registerFirst">
+            변리사 자격증을 소지하고 계신가요?
+          </div>
+          <div className="registerSecond">
+            온더마크의 변리사로 등록해보세요. 배정된 건에 대한 상표 검토를
+            수행하면 건별로 리워드를 제공합니다.
+          </div>
+          <div className="registerButton">
+            <div className="registerButtonText">전문가로 등록하기</div>
+          </div>
+        </div>
+
+        <div className="email">
+          <div className="emailWrapper">
+            <div className="emailWrapperFirst">
+              <div className="emailWrapperFirstText">고객상담 Email</div>
+            </div>
+            <div className="emailWrapperSecond">help@onthemark.co.kr</div>
+            <div className="emailWrapperThird">
+              <div className="emailWrapperThirdTop">
+                평일 10:00 - 18:00 [점심시간 12:00 - 13:00]
+              </div>
+              <div className="emailWrapperThirdBottom">휴일 및 주말 휴무</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="emailMobile">
+          <div className="emailMobileTop">
+            <div className="emailMobileTopText">고객상담 Email</div>
+            <div className="emailMobileTopEmail">help@onthemark.co.kr</div>
+          </div>
+          <div className="emailMobileBottom">
+            <div className="emailMobileBottomTime">
+              평일 10:00 - 18:00 [점심시간 12:00 - 13:00]
+            </div>
+            <div className="emailMobileBottomBreak">휴일 및 주말 휴무</div>
           </div>
         </div>
       </div>
