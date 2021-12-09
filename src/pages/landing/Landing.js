@@ -1,7 +1,8 @@
-import React from "react";
-import Slider from "react-slick";
+import React, { useEffect, useMemo } from "react";
+import cx from "classnames";
 
 import { Banner, Header } from "components";
+import Slider from "react-slick";
 
 import "./Landing.scss";
 import "slick-carousel/slick/slick.css";
@@ -9,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const NextArrow = (props) => {
   const { className, onClick } = props;
+
   return (
     <div className={className} onClick={onClick}>
       <div class="circle">
@@ -36,7 +38,7 @@ const PrevArrow = (props) => {
   );
 };
 
-const settings = {
+const SETTINGS = {
   className: "center",
   dots: false,
   infinite: true,
@@ -94,6 +96,26 @@ const thirdSettings = {
 };
 
 export const Landing = () => {
+  const [page, setPage] = React.useState(0);
+  const [slider, setSlider] = React.useState(null);
+
+  const onClickSlickItem = React.useCallback(
+    (activePage) => {
+      return () => {
+        setPage(activePage);
+        if (slider) slider.slickGoTo(activePage);
+      };
+    },
+    [slider]
+  );
+
+  const settings = useMemo(() => {
+    return {
+      ...SETTINGS,
+      afterChange: (current) => setPage(current),
+    };
+  }, []);
+
   return (
     <>
       <Banner />
@@ -172,12 +194,27 @@ export const Landing = () => {
             모든 것을 혼자 할 필요는 없습니다. 전문 영역은 믿고 맡겨주세요.
           </div>
           <div class="item-wrapper">
-            <div class="item">저가형 서비스 문제인식</div>
-            <div class="item">다수 변리사 피드백</div>
-            <div class="item">최저가 및 상표등록 보장제도</div>
+            <div
+              class={cx("item", { isActive: page % 3 === 0 })}
+              onClick={onClickSlickItem(0)}
+            >
+              저가형 서비스 문제인식
+            </div>
+            <div
+              class={cx("item", { isActive: page % 3 === 1 })}
+              onClick={onClickSlickItem(1)}
+            >
+              다수 변리사 피드백
+            </div>
+            <div
+              class={cx("item", { isActive: page % 3 === 2 })}
+              onClick={onClickSlickItem(2)}
+            >
+              최저가 및 상표등록 보장제도
+            </div>
           </div>
           <div class="bottom-item">
-            <Slider {...settings}>
+            <Slider ref={setSlider} {...settings}>
               <div class="bottom-item-first">
                 <div class="bottom-item-first-img">
                   <div class="bottom-item-first-img-top">
