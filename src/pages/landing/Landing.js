@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useCallback, useState, useMemo } from "react";
 import Slider from "react-slick";
+import cx from "classnames";
 
 import { Banner, Header } from "components";
 
@@ -36,7 +37,7 @@ const PrevArrow = (props) => {
   );
 };
 
-const settings = {
+const SETTINGS = {
   className: "center",
   dots: false,
   infinite: true,
@@ -94,6 +95,28 @@ const thirdSettings = {
 };
 
 export const Landing = () => {
+  const [slider, setSlider] = useState(null);
+  const [page, setPage] = useState(0);
+
+  // const settings = {
+  //   ...SETTINGS,
+  //   afterChange: (next) => setPage(next),
+  // };
+
+  const settings = useMemo(() => {
+    return {
+      ...SETTINGS,
+      afterChange: (next) => setPage(next),
+    };
+  }, []);
+
+  const onChangeSlider = useCallback(
+    (props) => {
+      setPage(props);
+      if (slider) slider.slickGoTo(props % 3);
+    },
+    [slider]
+  );
   return (
     <>
       <Banner />
@@ -172,12 +195,27 @@ export const Landing = () => {
             모든 것을 혼자 할 필요는 없습니다. 전문 영역은 믿고 맡겨주세요.
           </div>
           <div class="item-wrapper">
-            <div class="item">저가형 서비스 문제인식</div>
-            <div class="item">다수 변리사 피드백</div>
-            <div class="item">최저가 및 상표등록 보장제도</div>
+            <div
+              class={cx("item", { isActive: page % 3 === 0 })}
+              onClick={() => onChangeSlider(0)}
+            >
+              저가형 서비스 문제인식
+            </div>
+            <div
+              class={cx("item", { isActive: page % 3 === 1 })}
+              onClick={() => onChangeSlider(1)}
+            >
+              다수 변리사 피드백
+            </div>
+            <div
+              class={cx("item", { isActive: page % 3 === 2 })}
+              onClick={() => onChangeSlider(2)}
+            >
+              최저가 및 상표등록 보장제도
+            </div>
           </div>
           <div class="bottom-item">
-            <Slider {...settings}>
+            <Slider ref={(slider) => setSlider(slider)} {...settings}>
               <div class="bottom-item-first">
                 <div class="bottom-item-first-img">
                   <div class="bottom-item-first-img-top">

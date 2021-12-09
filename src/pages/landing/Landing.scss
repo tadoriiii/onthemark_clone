@@ -432,6 +432,10 @@
 
         border-radius: 500px;
         background-color: rgb(231, 237, 243);
+        &.isActive {
+          background-color: rgb(18, 29, 41);
+          color: rgb(255, 255, 255);
+        }
       }
       @include mediaTablet {
         display: flex;
